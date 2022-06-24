@@ -1,13 +1,20 @@
-const express = require("express");
-const path = require("path");
+import express from "express";
+import cors from "cors";
+import router from "./routes/router.js";
 
 const app = express();
-const port = process.env.PORT || 3000;
 
-// sendFile will go here
+app.use(express.json());
+app.use(cors());
+app.use("/", router);
+app.use(express.static("./"));
+
+const port = 5000;
+
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "/index.html"));
+  res.render("index.html");
 });
 
-app.listen(port);
-console.log("Server started at http://localhost:" + port);
+app.listen(port, () => {
+  console.log(`app listening at http://localhost:${port}`);
+});
