@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript" src="../javascript/signin.js"></script>
+    <title>M1 Inc.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron text-left">
+                        <p class="h2" id="h2"><b>導入 EasyMint 地址</b></p>
+                        <figure id="basic">
+                            <div class="container" style="display: inline-block">
+                                <p>查閱 EasyMint 商店發出的 NFT 請先輸入 email 並完成驗證程序。</p>
+                                <ul style="padding-left: 0%;">1. 清輸入您的 email。輸入完畢後,請按下『發送驗證碼』,系統將立即發送驗證碼到email</ul>
+                                <form method="post" action="confirm" role="form">
+                                    <div class="col-md-9 col-sm-12">
+                                        <div class="form-group form-group-lg">
+                                            <input type="text" class="form-control col-md-6 col-sm-6 col-sm-offset-2"
+                                                id="email" name="email" required />
+                                            <input type="button"
+                                                class="btn btn-secondary btn-sm col-md-2 col-sm-2 float-end"
+                                                id="sendmail" onclick="sendVerifyCode()" value="發送驗證碼" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="container" style="display: inline-block">
+                                <ul style="padding-left: 0%; padding-top: 5%;">2. 請輸入收到的驗證碼，並按下送出。系統將立即進行驗證程序。</ul>
+                                <form method="post" action="confirm" role="form">
+                                    <div class="col-md-9 col-sm-12">
+                                        <div class="form-group form-group-lg">
+                                            <input type="text" class="form-control col-md-6 col-sm-6 col-sm-offset-2"
+                                                name="verifyCode" id="check" required />
+                                            <input type="button"
+                                                class="btn btn-secondary btn-sm col-md-2 col-sm-2 float-end" id="regist"
+                                                onclick="checkMailUser()" value="送出" />
+                                        </div>
+                                    </div>
+                                </form>
+                                <button type="reset" id="btn_reset" style="display: none;"></button>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+            </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+            </script>
+        <script>
+            function initializeLiff(myLiffId) {
+                liff
+                    .init({
+                        liffId: myLiffId
+                    })
+                    .then(() => {
+                        // start to use LIFF's api
+                        console.log("start!");
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
+            initializeLiff('1657191889-OLl2aGwP');
+        </script>
+</body>
+
+</html>

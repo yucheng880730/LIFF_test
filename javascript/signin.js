@@ -1,5 +1,4 @@
 const verifyArray = [];
-// const userEmail = $("#email").val();
 
 function getRandomInt(max) {
   const num = Math.floor(Math.random() * max);
@@ -9,6 +8,7 @@ function getRandomInt(max) {
 function sendVerifyCode() {
   const verifyNum = getRandomInt(100000);
   const userEmail = $("#email").val();
+  sessionStorage.setItem("email", userEmail);
 
   const data = {
     mail: userEmail,
@@ -34,12 +34,12 @@ function checkMailUser() {
   if (input == verifyArray.pop()) {
     console.log("success");
     // const data = {
-    //   line_id: "",
+    //   line_id: "123456789",
     //   email: userEmail,
     //   sign: "",
     // };
     // $.ajax({
-    //   url: "",
+    //   url: "BindLine.html",
     //   contentType: "application/json",
     //   data: JSON.stringify(data),
     //   type: "POST",
