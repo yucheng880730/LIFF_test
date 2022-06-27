@@ -1,4 +1,4 @@
-const verifyArray = [];
+let verifyArray = [];
 
 function getRandomInt(max) {
   const num = Math.floor(Math.random() * max);
@@ -53,3 +53,12 @@ function checkMailUser() {
     console.log("please resend the verify code");
   }
 }
+
+// function getUserId() {
+//   $.ajax({
+//     url: "https://api.line.me/v2/profile",
+//     type: "GET",
+//   }).done(function () {
+//     const uid = res.id;
+//   })
+// }
